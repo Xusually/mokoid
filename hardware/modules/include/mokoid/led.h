@@ -36,7 +36,7 @@ struct led_control_device_t {
    int fd;              /* file descriptor of LED device */
 
    /* supporting control APIs go here */
-   int (*set_on)(struct led_control_device_t *dev, int32_t led);
+   int (*set_on)(struct led_control_device_t *dev, int32_t led);//struct led_control_device_t *dev 用来模拟this
    int (*set_off)(struct led_control_device_t *dev, int32_t led);
 };
 
