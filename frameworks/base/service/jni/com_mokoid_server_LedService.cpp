@@ -62,7 +62,7 @@ static jboolean mokoid_setOff(JNIEnv* env, jobject thiz, jint led, jfloat x,
 static const JNINativeMethod gMethods[] = {
     {"_init",	  	"()Z",
 			(void*)mokoid_init},
-    { "_set_on",          "(I)Z",
+    { "_set_on",          "(ILjava/lang/String;[I)Z",//http://docs.oracle.com/javase/1.5.0/docs/guide/jni/spec/types.html
                         (void*)mokoid_setOn },
     { "_set_off",          "(I)Z",
                         (void*)mokoid_setOff },
