@@ -75,8 +75,15 @@ status_t BnLedService::onTransact(
 	case LED_ON:
             CHECK_INTERFACE(ILedService, data, reply);
             int n = data.readInt32();//
-            status_t = setOn(n);//
-	    return NO_ERROR;
+            status_t result = setOn(n);//
+            reply->writeInt32(result);//
+	    return NO_ERROR;//
+	case LED_OFF://
+            CHECK_INTERFACE(ILedService, data, reply);//
+            int n = data.readInt32();//
+            status_t result = setOff(n);//
+            reply->writeInt32(result);//
+	    return NO_ERROR;//
         default:
             return BBinder::onTransact(code, data, reply, flags);
     }
