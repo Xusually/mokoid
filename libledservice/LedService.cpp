@@ -50,10 +50,19 @@ public:
     {
         Parcel data, reply;
         data.writeInterfaceToken(ILedService::getInterfaceDescriptor());
+        data.writeInt32(led);
         remote()->transact(BnLedService::LED_ON, data, &reply);
         return 0;
     }
 
+    virtual int setOff(int led)
+    {
+        Parcel data, reply;
+        data.writeInterfaceToken(ILedService::getInterfaceDescriptor());
+        data.writeInt32(led);
+        remote()->transact(BnLedService::LED_OFF, data, &reply);
+        return 0;
+    }
 };
 
 IMPLEMENT_META_INTERFACE(LedService, "mokoid.hardware.ILedService");
